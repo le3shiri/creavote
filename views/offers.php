@@ -30,7 +30,7 @@ function render_main() {
             <?php foreach ($offers as $offer): ?>
                 <div class="bg-white rounded-lg shadow p-5 flex flex-col md:flex-row items-center md:items-start">
                     <div class="flex-1">
-                        <div class="font-bold text-lg mb-1"><?php echo htmlspecialchars($offer['offer_title']); ?></div>
+                        <a href="offer-details.php?id=<?php echo $offer['offer_id']; ?>" class="font-bold text-lg mb-1 text-blue-600 hover:underline"><?php echo htmlspecialchars($offer['offer_title']); ?></a>
                         <div class="text-gray-600 mb-2 text-sm"><?php echo htmlspecialchars($offer['description']); ?></div>
                         <div class="text-xs text-gray-400 mb-2">By <?php echo htmlspecialchars($offer['firstname'] . ' ' . $offer['lastname']); ?> | Starts <?php echo htmlspecialchars($offer['offer_start']); ?></div>
                         <div class="flex flex-wrap gap-2 mb-4">
@@ -54,6 +54,7 @@ function render_main() {
                         }
                         ?>
                         <div class="flex gap-3">
+    <a href="offer-details.php?id=<?php echo $offer['offer_id']; ?>" class="bg-blue-100 hover:bg-blue-200 text-blue-700 px-4 py-2 rounded font-semibold text-sm">Details</a>
                             <?php if ($applied): ?>
                                 <button class="apply-btn bg-gray-300 text-gray-500 px-6 py-2 rounded font-semibold cursor-not-allowed" disabled data-offer="<?php echo $offer['offer_id']; ?>">Applied</button>
                             <?php else: ?>

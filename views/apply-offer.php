@@ -50,19 +50,24 @@ function render_main() {
                 </div>
             </div>
         </div>
-        <!-- File Upload Section -->
+        <!-- Video Upload Section -->
         <form action="../controllers/submit-design.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="offer_id" value="<?php echo htmlspecialchars($offer['offer_id']); ?>">
             <div class="bg-white rounded-lg shadow p-6 mb-6">
-                <h2 class="text-lg font-bold mb-4">Select Relevant Work</h2>
+                <h2 class="text-lg font-bold mb-4">Submit Your Video</h2>
                 <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center bg-gray-50">
-                    <input type="file" name="design_file" id="design_file" class="hidden">
+                    <input type="file" name="design_file" id="design_file" class="hidden" accept="image/jpeg,image/png,image/gif,image/webp,video/mp4,video/webm,video/mov" required>
                     <label for="design_file" class="flex flex-col items-center cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4a1 1 0 011-1h8a1 1 0 011 1v12M7 16l-4 4m0 0l4-4m-4 4h18" /></svg>
-                        <span class="text-gray-500">Drag and drop files here or click to browse</span>
-                        <button id="add-files-btn" type="button" class="mt-3 bg-white border px-6 py-2 rounded shadow text-gray-700 font-semibold">+ Add Files</button>
+                        <span class="text-gray-500">Drag and drop an image or video here or click to browse (JPG, PNG, GIF, WEBP, MP4, WEBM, MOV)</span>
+                        <button id="add-files-btn" type="button" class="mt-3 bg-white border px-6 py-2 rounded shadow text-gray-700 font-semibold">+ Add File</button>
                         <span id="selected-file-name" class="block mt-2 text-sm text-green-600"></span>
                     </label>
+                </div>
+                <div class="mt-4 text-left">
+                    <label for="description" class="block text-gray-700 font-semibold mb-1">Description</label>
+                    <textarea name="description" id="description" rows="3" class="w-full border rounded px-3 py-2" placeholder="Describe your video..."></textarea>
+                </div>
                     <script>
                         // Show file name when selected
                         const fileInput = document.getElementById('design_file');

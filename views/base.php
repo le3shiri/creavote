@@ -15,9 +15,10 @@
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
-<div class="flex min-h-screen">
+<div class="flex">
     <!-- Sidebar -->
-    <aside class="w-64 bg-white border-r flex flex-col justify-between py-6 px-4">
+    <aside class="w-64 bg-white border-r flex flex-col justify-between py-6 px-4 fixed top-0 left-0 bottom-0 z-30 h-screen">
+
         <div>
             <div class="flex items-center mb-10">
                 <span class="text-3xl font-extrabold text-purple-600 mr-2">CREAVOTE</span>
@@ -66,12 +67,13 @@
         <?php endif; ?>
     </aside>
     <!-- Main Content -->
-    <main class="flex-1 flex flex-col">
+    <main class="flex-1 flex flex-col ml-64 mr-80 min-h-screen">
         <!-- Content injected here -->
         <?php if (function_exists('render_main')) render_main(); ?>
     </main>
     <!-- Right Panel -->
-    <aside class="w-80 bg-white border-l px-6 py-8 hidden lg:block">
+    <?php if (basename($_SERVER['SCRIPT_NAME']) !== 'videos.php'): ?>
+    <aside class="w-80 bg-white border-l px-6 py-8 hidden lg:block fixed top-0 right-0 bottom-0 z-30 h-screen overflow-y-auto">
         <?php
         $total_earnings = 0;
         $recent_payments = [];
@@ -110,6 +112,7 @@
             </div>
         </div>
     </aside>
+    <?php endif; ?>
 </div>
 <script>
 // Chart.js Line/Bar for user's earnings over time

@@ -8,6 +8,7 @@ require_once '../config/db.php';
 if (empty($_SESSION['user_id']) || empty($_POST['offer_id'])) {
     die('Unauthorized.');
 }
+
 $user_id = $_SESSION['user_id'];
 $offer_id = $_POST['offer_id'];
 // File upload handling
@@ -27,9 +28,29 @@ if (!move_uploaded_file($_FILES['design_file']['tmp_name'], $target)) {
     error_log('Failed to upload file: ' . print_r($_FILES['design_file'], true));
     die('Failed to upload file.');
 }
-$file_url = '/uploads/' . $filename; // Always web-accessible path
-// Insert into designs table
-$stmt = $pdo->prepare('INSERT INTO designs (offer_id, designer_id, file_url, description) VALUES (?, ?, ?, ?)');
-$stmt->execute([$offer_id, $user_id, $file_url, '']);
-header('Location: ../views/apply-offer.php?offer_id=' . urlencode($offer_id) . '&success=1');
+$file_url = '/Creavote/uploads/' . $filename; // Always web-accessible path
+
+// Validate file type (image or video)
+$allowed_image_types = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+$allowed_video_types = ['mp4', 'webm', 'mov'];
+if (!in_array($ext, $allowed_image_types) && !in_array($ext, $allowed_video_types)) {
+    die('Invalid file type. Only JPG, JPEG, PNG, GIF, WEBP images and MP4, WEBM, MOV videos are allowed.');
+}
+
+// Get description if provided
+$description = isset($_POST['description']) ? trim($_POST['description']) : '';
+
+// Generate unique design_id
+$design_id = uniqid('dsn');
+// Insert into designs table with design_id
+$stmt = $pdo->prepare('INSERT INTO designs (design_id, offer_id, designer_id, file_url, description) VALUES (?, ?, ?, ?, ?)');
+$stmt->execute([$design_id, $offer_id, $user_id, $file_url, $description]);
+// Insert into applications table if not already present
+$stmt = $pdo->prepare('SELECT 1 FROM applications WHERE user_id = ? AND offer_id = ?');
+$stmt->execute([$user_id, $offer_id]);
+if (!$stmt->fetchColumn()) {
+    $stmt = $pdo->prepare('INSERT INTO applications (user_id, offer_id) VALUES (?, ?)');
+    $stmt->execute([$user_id, $offer_id]);
+}
+header('Location: ../views/videos.php');
 exit;

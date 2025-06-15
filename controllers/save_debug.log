@@ -1,0 +1,123 @@
+2025-06-15T11:35:13+02:00
+POST: {"design_id":"0"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:37:43+02:00
+POST: {"design_id":""}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:39:43+02:00
+POST: {"design_id":"dsn1"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:40:01+02:00
+POST: {"design_id":"dsn2"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:40:08+02:00
+POST: {"design_id":"dsn2"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:40:09+02:00
+POST: {"design_id":"dsn1"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:41:32+02:00
+POST: {"design_id":"dsn2"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:41:33+02:00
+POST: {"design_id":"dsn3"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:41:36+02:00
+POST: {"design_id":""}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:41:37+02:00
+POST: {"design_id":"dsn1"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:41:48+02:00
+POST: {"design_id":"dsn3"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:41:49+02:00
+POST: {"design_id":"dsn1"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:41:50+02:00
+POST: {"design_id":""}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:41:52+02:00
+POST: {"design_id":"dsn2"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:42:13+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:42:14+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:42:15+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:42:16+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:42:22+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:42:22+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:42:22+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:42:22+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T11:44:06+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com"}
+2025-06-15T12:00:00+02:00
+POST: {"design_id":"dsn3","action":"save"}
+SESSION: {"user_id":"usr684cbbf217144","username":"mohamedelachri","role":"designer","email":"satayman41@gmail.com"}
+2025-06-15T12:12:08+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com"}
+2025-06-15T12:12:20+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com"}
+2025-06-15T12:12:21+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com"}
+2025-06-15T12:12:21+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com"}
+2025-06-15T12:12:21+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com"}
+2025-06-15T12:12:22+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com"}
+2025-06-15T12:12:22+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com"}
+2025-06-15T12:12:22+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com"}
+2025-06-15T12:12:22+02:00
+POST: {"design_id":"","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com"}
+2025-06-15T12:12:32+02:00
+POST: {"design_id":"dsn1","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com"}
+2025-06-15T12:18:39+02:00
+POST: {"design_id":"dsn684e9c617e69f","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com"}
+2025-06-15T14:44:36+02:00
+POST: {"design_id":"dsn684ebf584dd5f","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com","admin_id":1,"admin_username":"admin","admin_nom":"Syst\u00e8me Administrateur","admin_role":"admin","logged_in":true}
+2025-06-15T14:46:33+02:00
+POST: {"design_id":"dsn684ebf584dd5f","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com","admin_id":1,"admin_username":"admin","admin_nom":"Syst\u00e8me Administrateur","admin_role":"admin","logged_in":true}
+2025-06-15T14:46:47+02:00
+POST: {"design_id":"dsn684ebf584dd5f","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com","admin_id":1,"admin_username":"admin","admin_nom":"Syst\u00e8me Administrateur","admin_role":"admin","logged_in":true}
+2025-06-15T14:47:08+02:00
+POST: {"design_id":"dsn684ebf584dd5f","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com","admin_id":1,"admin_username":"admin","admin_nom":"Syst\u00e8me Administrateur","admin_role":"admin","logged_in":true}
+2025-06-15T14:56:47+02:00
+POST: {"design_id":"dsn684ebf584dd5f","action":"unsave"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com","admin_id":1,"admin_username":"admin","admin_nom":"Syst\u00e8me Administrateur","admin_role":"admin","logged_in":true}
+2025-06-15T14:56:54+02:00
+POST: {"design_id":"dsn684ebf584dd5f","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com","admin_id":1,"admin_username":"admin","admin_nom":"Syst\u00e8me Administrateur","admin_role":"admin","logged_in":true}
