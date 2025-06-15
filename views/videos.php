@@ -35,7 +35,7 @@ fetch('/creavote/controllers/videos.php')
         <div class="bg-white rounded-lg shadow mb-8 w-full max-w-xs mx-auto flex flex-col items-center" data-design-id="${v.design_id}">
             <div class="relative w-full" style="aspect-ratio:9/16; max-width:360px; max-height:640px;">
                 ${/\.(mp4|webm|mov)$/i.test(v.file_url) ? `<video src="${v.file_url}" controls autoplay loop muted playsinline class="object-cover w-full h-full rounded-xl bg-black" style="aspect-ratio:9/16; max-width:360px; max-height:640px;"></video>` : `<img src="${v.file_url}" class="object-cover w-full h-full rounded-xl bg-black" style="aspect-ratio:9/16; max-width:360px; max-height:640px;" alt="Design Image" />`}
-                <div class="absolute top-3 right-3 flex items-center bg-black/60 rounded-full px-2 py-1 z-10 shadow">
+                <div class="absolute top-3 right-3 flex items-center bg-black/60 rounded-full px-2 py-1 z-10 shadow border-2" style="border-color:#55A9FF; box-shadow:0 0 0 4px #55A9FF22;">
                     <img src="${v.profile_picture || '/creavote/assets/default-profile.png'}" class="w-8 h-8 rounded-full border-2 border-white" alt="Designer">
                     <span class="ml-2 text-sm font-semibold text-white">${v.firstname}_${v.lastname}</span>
                 </div>
@@ -45,18 +45,18 @@ fetch('/creavote/controllers/videos.php')
                 <!-- Voting system -->
                 <div class="flex items-center justify-end gap-2 mb-2">
                   <span class="text-yellow-500 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97a1 1 0 00.95.69h4.175c.969 0 1.371 1.24.588 1.81l-3.38 2.455a1 1 0 00-.364 1.118l1.287 3.97c.3.921-.755 1.688-1.54 1.118l-3.38-2.455a1 1 0 00-1.176 0l-3.38 2.455c-.784.57-1.838-.197-1.54-1.118l1.287-3.97a1 1 0 00-.364-1.118L2.05 9.397c-.783-.57-.38-1.81.588-1.81h4.175a1 1 0 00.95-.69l1.286-3.97z"/></svg>${v.rating ? v.rating.toFixed(1) : '0.0'}</span>
-                  <button class="like-btn flex items-center gap-1 p-2 rounded-full hover:bg-blue-100 text-blue-500 border border-blue-200 ml-2" title="Vote">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 9l-1-1m0 0a3 3 0 00-4.243 0l-1 1a3 3 0 000 4.243l6 6a3 3 0 004.243 0l1-1a3 3 0 000-4.243l-6-6z" /></svg>
+                  <button class="like-btn flex items-center gap-1 p-2 rounded-full border ml-2 transition-all" style="background:#55A9FF22;border-color:#55A9FF;color:#55A9FF;" title="Vote">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#55A9FF"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 9l-1-1m0 0a3 3 0 00-4.243 0l-1 1a3 3 0 000 4.243l6 6a3 3 0 004.243 0l1-1a3 3 0 000-4.243l-6-6z" /></svg>
                     <span class="like-count">${v.votes_count || 0}</span>
                   </button>
                 </div>
                 <div class="flex items-center justify-center gap-6 mt-2">
-                    <button class="comment-btn flex items-center gap-1 p-2 rounded-full hover:bg-blue-100" title="Comment">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v8a2 2 0 01-2 2H7a2 2 0 01-2-2V10a2 2 0 012-2h2m2-4h4a2 2 0 012 2v2a2 2 0 01-2 2h-4a2 2 0 01-2-2V6a2 2 0 012-2z" /></svg>
+                    <button class="comment-btn flex items-center gap-1 p-2 rounded-full transition-all" style="background:#55A9FF22;color:#55A9FF;" title="Comment">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#55A9FF"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v8a2 2 0 01-2 2H7a2 2 0 01-2-2V10a2 2 0 012-2h2m2-4h4a2 2 0 012 2v2a2 2 0 01-2 2h-4a2 2 0 01-2-2V6a2 2 0 012-2z" /></svg>
                         <span>Comment</span>
                     </button>
-                    <button class="save-btn flex items-center gap-1 p-2 rounded-full" title="Save" data-saved="${v.is_saved ? '1' : '0'}" style="background:${v.is_saved ? '#d1fae5' : '#eff6ff'};color:${v.is_saved ? '#059669' : '#2563eb'}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5v14l7-7 7 7V5a2 2 0 00-2-2H7a2 2 0 00-2 2z" /></svg>
+                    <button class="save-btn flex items-center gap-1 p-2 rounded-full transition-all" title="Save" data-saved="${v.is_saved ? '1' : '0'}" style="background:${v.is_saved ? '#55A9FF' : '#55A9FF22'};color:${v.is_saved ? '#fff' : '#55A9FF'};border:1.5px solid #55A9FF;">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="${v.is_saved ? '#fff' : '#55A9FF'}"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5v14l7-7 7 7V5a2 2 0 00-2-2H7a2 2 0 00-2 2z" /></svg>
                         <span class="save-label">${v.is_saved ? 'Saved' : 'Save'}</span>
                     </button>
                 </div>

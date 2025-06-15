@@ -12,6 +12,21 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
       body { font-family: 'Roboto', sans-serif; }
+      /* Custom Blue Theme */
+      .btn-primary {
+        background-color: #55A9FF;
+        color: white;
+        transition: all 0.2s;
+      }
+      .btn-primary:hover {
+        background-color: #3d94f5;
+        transform: translateY(-1px);
+      }
+      .text-primary { color: #55A9FF; }
+      .bg-primary { background-color: #55A9FF; }
+      .border-primary { border-color: #55A9FF; }
+      .hover\:bg-primary:hover { background-color: #55A9FF; }
+      .hover\:text-primary:hover { color: #55A9FF; }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
@@ -21,7 +36,8 @@
 
         <div>
             <div class="flex items-center mb-10">
-                <span class="text-3xl font-extrabold text-purple-600 mr-2">CREAVOTE</span>
+                <img src="../assets/logo.jpg" alt="Logo" class="w-20 h-20">
+                <span class="text-3xl font-extrabold text-[#55A9FF] mr-2">CREAVOTE</span>
             </div>
             <?php
             if (session_status() !== PHP_SESSION_ACTIVE) session_start();
@@ -34,11 +50,11 @@
             }
             ?>
             <nav class="space-y-2">
-                <a href="home.php" class="flex items-center px-4 py-2 rounded-lg text-purple-600 bg-purple-100 font-semibold"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M13 5v6h6m-6 0H7m6 0v6m0 0H7m6 0h6" /></svg>Home</a>
-                <a href="offers.php" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-purple-50"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2a4 4 0 004 4h2a4 4 0 004-4z" /></svg>Offers</a>
-                <a href="videos.php" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-purple-50"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A2 2 0 0021 6.382V17.618a2 2 0 01-1.447 1.894L15 17.618M15 10v7.618m0-7.618L9 13.618m6-3.618v7.618m0-7.618L3 17.618m6-3.618v7.618" /></svg>Videos</a>
+                <a href="home.php" class="flex items-center px-4 py-2 rounded-lg text-white bg-[#55A9FF] font-semibold hover:bg-[#3d94f5] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M13 5v6h6m-6 0H7m6 0v6m0 0H7m6 0h6" /></svg>Home</a>
+                <a href="offers.php" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2a4 4 0 004 4h2a4 4 0 004-4z" /></svg>Offers</a>
+                <a href="videos.php" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A2 2 0 0021 6.382V17.618a2 2 0 01-1.447 1.894L15 17.618M15 10v7.618m0-7.618L9 13.618m6-3.618v7.618m0-7.618L3 17.618m6-3.618v7.618" /></svg>Videos</a>
                 <?php if (!empty($_SESSION['user_id'])): ?>
-                <a href="notifications.php" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-purple-50 relative">
+                <a href="notifications.php" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF] transition-colors relative">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
                     Notifications
                     <?php if ($unread_count > 0): ?>
@@ -46,7 +62,7 @@
                     <?php endif; ?>
                 </a>
                 <?php endif; ?>
-                <a href="profile.php" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-purple-50"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A8.966 8.966 0 0112 15c2.21 0 4.243.805 5.879 2.146M15 10a3 3 0 11-6 0 3 3 0 016 0z" /></svg>Profile</a>
+                <a href="profile.php" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A8.966 8.966 0 0112 15c2.21 0 4.243.805 5.879 2.146M15 10a3 3 0 11-6 0 3 3 0 016 0z" /></svg>Profile</a>
             </nav>
         </div>
         <?php if (!empty($_SESSION['user_id'])): 

@@ -15,7 +15,7 @@
 <body class="min-h-screen bg-gray-50 flex items-center justify-center">
     <div class="w-full max-w-md bg-white shadow-lg rounded-xl p-8">
         <div class="flex items-center justify-center mb-6">
-            <span class="text-3xl font-bold text-purple-600">Creavote</span>
+            <span class="text-3xl font-bold text-[#55A9FF]">Creavote</span>
         </div>
         <?php
         if (session_status() === PHP_SESSION_NONE) session_start();
@@ -31,24 +31,24 @@
         <form action="../controllers/auth/login.php" method="POST" class="space-y-5">
             <div>
                 <label for="email" class="block text-gray-700">Email or Username</label>
-                <input type="text" id="email" name="email" required class="mt-1 w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <input type="text" id="email" name="email" required class="mt-1 w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#55A9FF] focus:border-[#55A9FF]">
             </div>
             <div>
                 <label for="password" class="block text-gray-700">Password</label>
-                <input type="password" id="password" name="password" required class="mt-1 w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <input type="password" id="password" name="password" required class="mt-1 w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#55A9FF] focus:border-[#55A9FF]">
             </div>
             <div class="flex items-center justify-between">
                 <div>
                     <input type="checkbox" id="remember" name="remember" class="mr-1">
                     <label for="remember" class="text-sm text-gray-600">Remember Me</label>
                 </div>
-                <a href="forgot-password.php" class="text-sm text-purple-600 hover:underline">Forgot Password?</a>
+                <a href="forgot-password.php" class="text-sm text-[#55A9FF] hover:underline hover:text-[#3d94f5] transition-colors">Forgot Password?</a>
             </div>
-            <button type="submit" class="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 font-semibold">Login</button>
+            <button type="submit" class="w-full bg-[#55A9FF] text-white py-2 rounded hover:bg-[#3d94f5] transition-colors font-medium font-semibold">Login</button>
         </form>
         <div class="mt-6 text-center">
             <span class="text-gray-600">Don't have an account?</span>
-            <a href="signup.php" class="text-purple-600 hover:underline font-semibold">Sign Up</a>
+            <a href="signup.php" class="text-[#55A9FF] hover:underline hover:text-[#3d94f5] transition-colors font-semibold">Sign Up</a>
         </div>
     </div>
 </body>
