@@ -52,8 +52,8 @@ if (!empty($_SESSION['user_id'])) {
                 <?php else: ?>
                     <div class="group">
                         <button type="button" class="bg-blue-500 hover:bg-blue-600 rounded-full p-3 shadow-lg focus:outline-none flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" /></svg>
-                        </button>
+                        <img src="../assets/logo.png" alt="" srcset="" width="20px">
+                    </button>
                         <div class="hidden group-hover:flex absolute bottom-12 right-0 bg-white rounded-full shadow-lg px-3 py-2 gap-2 border border-gray-200 animate-fade-in" style="min-width: 270px;">
                             <?php for ($i = 1; $i <= 10; $i++): ?>
                                 <form class="vote-form inline" data-design-id="<?php echo htmlspecialchars($design['design_id']); ?>" data-rating="<?php echo $i; ?>">
@@ -85,7 +85,8 @@ if (!empty($_SESSION['user_id'])) {
         <button class="p-2 text-gray-400 hover:text-gray-700"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="2" /><circle cx="19" cy="12" r="2" /><circle cx="5" cy="12" r="2" /></svg></button>
     </div>
     <div class="flex items-center gap-4 px-4 pb-4">
-        <button type="button" class="flex items-center text-gray-500 hover:text-purple-600" onclick="toggleCommentDropdown('<?php echo htmlspecialchars($design['design_id']); ?>')"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V10a2 2 0 012-2h2" /></svg>Comment</button>
+        <button type="button" class="flex items-center text-gray-500 hover:text-purple-600" onclick="toggleCommentDropdown('<?php echo htmlspecialchars($design['design_id']); ?>')"><svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="20" height="20"><path d="m13.5,10.5c0,.828-.672,1.5-1.5,1.5s-1.5-.672-1.5-1.5.672-1.5,1.5-1.5,1.5.672,1.5,1.5Zm3.5-1.5c-.828,0-1.5.672-1.5,1.5s.672,1.5,1.5,1.5,1.5-.672,1.5-1.5-.672-1.5-1.5-1.5Zm-10,0c-.828,0-1.5.672-1.5,1.5s.672,1.5,1.5,1.5,1.5-.672,1.5-1.5-.672-1.5-1.5-1.5Zm17-5v12c0,2.206-1.794,4-4,4h-2.852l-3.848,3.18c-.361.322-.824.484-1.292.484-.476,0-.955-.168-1.337-.507l-3.749-3.157h-2.923c-2.206,0-4-1.794-4-4V4C0,1.794,1.794,0,4,0h16c2.206,0,4,1.794,4,4Zm-2,0c0-1.103-.897-2-2-2H4c-1.103,0-2,.897-2,2v12c0,1.103.897,2,2,2h3.288c.235,0,.464.083.645.235l4.048,3.41,4.171-3.416c.179-.148.404-.229.637-.229h3.212c1.103,0,2-.897,2-2V4Z"/></svg>
+Comment</button>
 <div class="comment-input-wrapper mt-3 mb-2 hidden w-full px-0" id="comment-input-<?php echo htmlspecialchars($design['design_id']); ?>">
     <form class="comment-form flex items-center bg-gray-50 border border-gray-200 px-0 py-2 shadow-sm w-full mb-2 rounded-none" style="margin-left:0;margin-right:0;" data-design-id="<?php echo htmlspecialchars($design['design_id']); ?>">
         <textarea name="comment" rows="1" class="flex-1 resize-none bg-transparent border-0 focus:ring-0 text-sm placeholder-gray-400 p-2 rounded-none" placeholder="Write a comment..." style="min-height:36px;max-height:80px;overflow:auto;"></textarea>
@@ -120,7 +121,8 @@ $is_saved = in_array($design['design_id'], $saved_ids);
 <button onclick="toggleSaveDesign('<?php echo htmlspecialchars($design['design_id']); ?>', this)"
     class="flex items-center px-4 py-2 rounded ml-2 <?php echo $is_saved ? 'bg-green-100 text-green-600' : 'bg-blue-100 text-blue-600'; ?>"
     data-saved="<?php echo $is_saved ? '1' : '0'; ?>">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="20" height="20"><path d="M20.137,24a2.8,2.8,0,0,1-1.987-.835L12,17.051,5.85,23.169a2.8,2.8,0,0,1-3.095.609A2.8,2.8,0,0,1,1,21.154V5A5,5,0,0,1,6,0H18a5,5,0,0,1,5,5V21.154a2.8,2.8,0,0,1-1.751,2.624A2.867,2.867,0,0,1,20.137,24ZM6,2A3,3,0,0,0,3,5V21.154a.843.843,0,0,0,1.437.6h0L11.3,14.933a1,1,0,0,1,1.41,0l6.855,6.819a.843.843,0,0,0,1.437-.6V5a3,3,0,0,0-3-3Z"/></svg>
+
     <span><?php echo $is_saved ? 'Saved' : 'Save'; ?></span>
 </button>
     </div>

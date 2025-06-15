@@ -54,13 +54,12 @@ function render_main() {
                         }
                         ?>
                         <div class="flex gap-3">
-    <a href="offer-details.php?id=<?php echo $offer['offer_id']; ?>" class="bg-[#55A9FF] hover:bg-[#3d94f5] text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors">Details</a>
+    <a href="offer-details.php?id=<?php echo $offer['offer_id']; ?>" class="bg-[#FFFFFF] hover:bg-[#FDFDFD] text-[#55A0FF] px-4 py-2 rounded-lg font-semibold text-sm transition-colors">Details</a>
                             <?php if ($applied): ?>
                                 <button class="apply-btn bg-gray-300 text-gray-500 px-6 py-2 rounded font-semibold cursor-not-allowed" disabled data-offer="<?php echo $offer['offer_id']; ?>">Applied</button>
                             <?php else: ?>
                                 <button type="button" class="apply-btn bg-[#55A9FF] hover:bg-[#3d94f5] text-white px-6 py-2 rounded-lg font-semibold transition-colors" data-offer="<?php echo $offer['offer_id']; ?>">Apply</button>
                             <?php endif; ?>
-                            <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-semibold transition-colors">Details</button>
 
                         </div>
                     </div>

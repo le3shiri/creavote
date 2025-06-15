@@ -121,3 +121,24 @@ SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"design
 2025-06-15T14:56:54+02:00
 POST: {"design_id":"dsn684ebf584dd5f","action":"save"}
 SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com","admin_id":1,"admin_username":"admin","admin_nom":"Syst\u00e8me Administrateur","admin_role":"admin","logged_in":true}
+2025-06-16T01:17:16+02:00
+POST: {"design_id":"dsn0","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com","admin_id":1,"admin_username":"admin","admin_nom":"Syst\u00e8me Administrateur","admin_role":"admin","logged_in":true}
+2025-06-16T01:19:40+02:00
+POST: {"design_id":"dsn0","action":"unsave"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com","admin_id":1,"admin_username":"admin","admin_nom":"Syst\u00e8me Administrateur","admin_role":"admin","logged_in":true}
+2025-06-16T01:19:41+02:00
+POST: {"design_id":"dsn0","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com","admin_id":1,"admin_username":"admin","admin_nom":"Syst\u00e8me Administrateur","admin_role":"admin","logged_in":true}
+2025-06-16T01:19:42+02:00
+POST: {"design_id":"dsn0","action":"unsave"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com","admin_id":1,"admin_username":"admin","admin_nom":"Syst\u00e8me Administrateur","admin_role":"admin","logged_in":true}
+2025-06-16T01:19:42+02:00
+POST: {"design_id":"dsn0","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com","admin_id":1,"admin_username":"admin","admin_nom":"Syst\u00e8me Administrateur","admin_role":"admin","logged_in":true}
+2025-06-16T01:20:29+02:00
+POST: {"design_id":"dsn2","action":"save"}
+SESSION: {"user_id":"usr684e9c412a979","username":"aymanelachiri","role":"designer","email":"aymenelachiri@icloud.com","admin_id":1,"admin_username":"admin","admin_nom":"Syst\u00e8me Administrateur","admin_role":"admin","logged_in":true}
+2025-06-16T01:46:59+02:00
+POST: {"design_id":"dsn684ebf584dd5f","action":"save"}
+SESSION: {"user_id":"usr684cc3422b4c0","username":"mohaela","role":"designer","email":"satayman@gmail.com","admin_id":1,"admin_username":"admin","admin_nom":"Syst\u00e8me Administrateur","admin_role":"admin","logged_in":true}
