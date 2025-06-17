@@ -54,15 +54,55 @@
                 <a href="offers.php" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF] transition-colors"><img src="../assets/offers.png" alt="">Offers</a>
                 <a href="videos.php" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF] transition-colors"><img src="../assets/videos.png" alt="">Videos</a>
                 <?php if (!empty($_SESSION['user_id'])): ?>
-                <a href="notifications.php" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF] transition-colors relative">
+                <a href="notifications.php" id="sidebar-notif-link" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF] transition-colors relative">
                     <img src="../assets/notifications.png" alt="">Notifications
                     <?php if ($unread_count > 0): ?>
-                        <span class="absolute top-1 right-1 bg-red-500 text-white text-xs rounded-full px-2 py-0.5 font-bold animate-pulse"><?php echo $unread_count; ?></span>
+                        <span id="sidebar-notif-badge" class="absolute top-1 right-1 bg-red-500 text-white text-xs rounded-full px-2 py-0.5 font-bold animate-pulse"><?php echo $unread_count; ?></span>
                     <?php endif; ?>
                 </a>
                 <?php endif; ?>
                 <a href="profile.php" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF] transition-colors"><img src="../assets/profile.png" alt="">Profile</a>
             </nav>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // If on notifications page, update badge immediately on page load
+    if (window.location.pathname.endsWith('notifications.php')) {
+        setTimeout(function() {
+            fetch('/creavote/controllers/notifications.php?action=count_unread')
+              .then(res => res.json())
+              .then(data => {
+                let badge = document.getElementById('sidebar-notif-badge');
+                if (badge) {
+                  if (!data.success || data.count === 0) {
+                    badge.style.display = 'none';
+                  } else {
+                    badge.textContent = data.count;
+                  }
+                }
+              });
+        }, 500); // Give backend a moment to update
+        // Still update after click as before
+        document.querySelectorAll('.notif-link').forEach(function(link) {
+            link.addEventListener('click', function() {
+                setTimeout(function() {
+                    fetch('/creavote/controllers/notifications.php?action=count_unread')
+                      .then(res => res.json())
+                      .then(data => {
+                        let badge = document.getElementById('sidebar-notif-badge');
+                        if (badge) {
+                          if (!data.success || data.count === 0) {
+                            badge.style.display = 'none';
+                          } else {
+                            badge.textContent = data.count;
+                          }
+                        }
+                      });
+                }, 500);
+            });
+        });
+    }
+});
+</script>
         </div>
         <?php if (!empty($_SESSION['user_id'])): 
             // Fetch user info for sidebar

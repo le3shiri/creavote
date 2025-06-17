@@ -52,5 +52,11 @@ if (!$stmt->fetchColumn()) {
     $stmt = $pdo->prepare('INSERT INTO applications (user_id, offer_id) VALUES (?, ?)');
     $stmt->execute([$user_id, $offer_id]);
 }
-header('Location: ../views/videos.php');
-exit;
+// Redirect based on file type
+if (in_array($ext, $allowed_video_types)) {
+    header('Location: ../views/videos.php');
+    exit;
+} else {
+    header('Location: ../views/home.php');
+    exit;
+}

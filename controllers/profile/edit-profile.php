@@ -31,6 +31,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = 'Invalid email address.';
     }
+    // Max length checks
+    if (strlen($firstname) > 100) $errors[] = 'First name too long.';
+    if (strlen($lastname) > 100) $errors[] = 'Last name too long.';
+    if (strlen($display_name) > 100) $errors[] = 'Display name too long.';
+    if (strlen($email) > 50) $errors[] = 'Email too long.';
+    if (strlen($phone) > 20) $errors[] = 'Phone number too long.';
+    if (strlen($country) > 100) $errors[] = 'Country name too long.';
+    if (strlen($location) > 100) $errors[] = 'Location too long.';
+    if (strlen($description) > 500) $errors[] = 'Description too long (max 500 chars).';
+    if (strlen($website) > 200) $errors[] = 'Website URL too long.';
+    if (strlen($linkedin) > 200) $errors[] = 'LinkedIn URL too long.';
+    if (strlen($instagram) > 200) $errors[] = 'Instagram URL too long.';
+    if (strlen($twitter) > 200) $errors[] = 'Twitter URL too long.';
+    // Phone validation
+    if ($phone && (!preg_match('/^\d{8,20}$/', $phone))) {
+        $errors[] = 'Phone number must be 8-20 digits.';
+    }
+    // URL validation
+    foreach ([['website',$website],['linkedin',$linkedin],['instagram',$instagram],['twitter',$twitter]] as $field) {
+        if ($field[1] && !filter_var($field[1], FILTER_VALIDATE_URL)) {
+            $errors[] = ucfirst($field[0]) . ' must be a valid URL.';
+        }
+    }
+    // Unique email check
+    $stmt = $pdo->prepare('SELECT user_id FROM users WHERE email = ? AND user_id != ?');
+    $stmt->execute([$email, $user_id]);
+    if ($stmt->fetch()) {
+        $errors[] = 'This email address is already used by another account.';
+    }
 
     // Profile picture upload
     $profile_picture_url = null;
@@ -41,18 +70,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] === UPLOAD_ERR_OK) {
         $allowed = ['jpg','jpeg','png','gif'];
         $ext = strtolower(pathinfo($_FILES['profile_picture']['name'], PATHINFO_EXTENSION));
-        if (in_array($ext, $allowed) && $_FILES['profile_picture']['size'] <= 2*1024*1024) {
+        if (in_array($ext, $allowed) && $_FILES['profile_picture']['size'] <= 36*1024*1024) {
             $filename = 'profile_' . $user_id . '_' . time() . '.' . $ext;
-            $destination = '../../uploads/' . $filename;
+            $destination = __DIR__ . '/../../uploads/' . $filename;
             if (move_uploaded_file($_FILES['profile_picture']['tmp_name'], $destination)) {
-                $profile_picture_url = '/uploads/' . $filename;
+                $profile_picture_url = '/Creavote/uploads/' . $filename;
                 file_put_contents(__DIR__.'/edit_profile_debug.log', date('c') . " - Uploaded new picture for user $user_id: $filename\n", FILE_APPEND);
+                // Update user profile picture in DB immediately
+                $stmt = $pdo->prepare('UPDATE users SET profile_picture = ? WHERE user_id = ?');
+                $stmt->execute([$profile_picture_url, $user_id]);
+                // Insert notification
+                $notif_stmt = $pdo->prepare('INSERT INTO notifications (user_id, type, message, is_read) VALUES (?, ?, ?, 0)');
+                $notif_stmt->execute([$user_id, 'message', 'You updated your profile picture!']);
+                // If AJAX, return JSON and exit
+                if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+                    echo json_encode(['success'=>true, 'profile_picture'=>$profile_picture_url]);
+                    exit;
+                }
             } else {
                 $errors[] = 'Failed to move uploaded file.';
                 file_put_contents(__DIR__.'/edit_profile_debug.log', date('c') . " - Failed to move uploaded file for user $user_id\n", FILE_APPEND);
             }
         } else {
-            $errors[] = 'Invalid profile picture file.';
+            $errors[] = 'Invalid profile picture file. Only JPG, JPEG, PNG, GIF up to 35MB are allowed.';
             file_put_contents(__DIR__.'/edit_profile_debug.log', date('c') . " - Invalid file type or size for user $user_id\n", FILE_APPEND);
         }
     }

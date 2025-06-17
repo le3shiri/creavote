@@ -40,6 +40,21 @@ function render_main() {
         </div>
         <!-- Account Security -->
         <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <?php if (!empty($_SESSION['password_change_errors'])): ?>
+                <div class="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+                    <?php foreach ($_SESSION['password_change_errors'] as $err): ?>
+                        <div><?php echo htmlspecialchars($err); ?></div>
+                    <?php endforeach; ?>
+                </div>
+                <?php unset($_SESSION['password_change_errors']); ?>
+            <?php endif; ?>
+            <?php if (!empty($_SESSION['password_change_success'])): ?>
+                <div class="mb-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+                    <?php echo htmlspecialchars($_SESSION['password_change_success']); ?>
+                </div>
+                <?php unset($_SESSION['password_change_success']); ?>
+            <?php endif; ?>
+
             <h2 class="text-lg font-bold mb-4">Account Security</h2>
             <form action="../controllers/profile/update-password.php" method="POST">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">

@@ -54,7 +54,7 @@ function render_main() {
         <form action="../controllers/submit-design.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="offer_id" value="<?php echo htmlspecialchars($offer['offer_id']); ?>">
             <div class="bg-white rounded-lg shadow p-6 mb-6">
-                <h2 class="text-lg font-bold mb-4">Submit Your Video</h2>
+                <h2 class="text-lg font-bold mb-4">Submit Your Creatif</h2>
                 <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center bg-gray-50">
                     <input type="file" name="design_file" id="design_file" class="hidden" accept="image/jpeg,image/png,image/gif,image/webp,video/mp4,video/webm,video/mov" required>
                     <label for="design_file" class="flex flex-col items-center cursor-pointer">

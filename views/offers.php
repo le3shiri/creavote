@@ -63,8 +63,12 @@ function render_main() {
 
                         </div>
                     </div>
-                    <div class="w-28 h-28 bg-gray-100 flex items-center justify-center ml-0 md:ml-6 mt-6 md:mt-0 rounded">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#55A9FF] opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a4 4 0 004 4h6a4 4 0 004-4V7" /></svg>
+                    <div class="w-28 h-28 bg-gray-100 flex items-center justify-center ml-0 md:ml-6 mt-6 md:mt-0 rounded overflow-hidden">
+                        <?php if (!empty($offer['offer_image'])): ?>
+                            <img src="<?php echo htmlspecialchars($offer['offer_image']); ?>" alt="Offer Image" class="object-cover w-full h-full" onerror="this.onerror=null;this.src='/creavote/assets/image-placeholder.png';" />
+                        <?php else: ?>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#55A9FF] opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a4 4 0 004 4h6a4 4 0 004-4V7" /></svg>
+                        <?php endif; ?>
                     </div>
                     <div class="ml-0 md:ml-6 mt-4 md:mt-0 text-right">
                         <div class="text-[#55A9FF] font-bold text-lg"><?php echo htmlspecialchars($offer['offer_budget']); ?> MAD</div>

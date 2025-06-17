@@ -22,13 +22,17 @@ if (!empty($_SESSION['user_id'])) {
     $saved_ids = array_column($stmt->fetchAll(PDO::FETCH_ASSOC), 'design_id');
 }
 ?>
-<?php foreach ($designs as $design): ?>
+<?php foreach ($designs as $design): 
+    $file_url = htmlspecialchars($design['file_url']);
+    // Only show images, not videos
+    $is_img = preg_match('/\.(jpg|jpeg|png|gif|webp)$/i', $file_url);
+    if (!$is_img) continue;
+?>
         <div class="bg-white rounded-lg shadow-lg mb-8 overflow-hidden transition-all duration-300 hover:shadow-xl">
     <div class="relative w-full aspect-square bg-gray-200 flex items-center justify-center overflow-hidden">
 
         <?php
-        $file_url = htmlspecialchars($design['file_url']);
-        $is_img = preg_match('/\.(jpg|jpeg|png|gif|webp)$/i', $file_url);
+        // $file_url and $is_img are already set above
         if ($is_img): ?>
             <img src="<?php echo (strpos($file_url, '/uploads') === 0 ? '/creavote' . $file_url : $file_url); ?>" alt="Design" class="object-contain w-full h-full" onerror="this.onerror=null;this.src='/creavote/assets/image-placeholder.png';" />
         <?php else: ?>
