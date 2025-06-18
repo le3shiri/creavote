@@ -49,19 +49,32 @@
                 $unread_count = (int)$stmt->fetchColumn();
             }
             ?>
+            <?php $current_page = basename($_SERVER['PHP_SELF']); ?>
             <nav class="space-y-2">
-                <a href="home.php" class="flex items-center px-4 py-2 rounded-lg text-white bg-[#55A9FF] font-semibold hover:bg-[#3d94f5] transition-colors"><img src="../assets/home.png" alt="">Home</a>
-                <a href="offers.php" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF] transition-colors"><img src="../assets/offers.png" alt="">Offers</a>
-                <a href="videos.php" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF] transition-colors"><img src="../assets/videos.png" alt="">Videos</a>
+                <a href="home.php"
+                   class="flex items-center px-4 py-2 rounded-lg font-semibold transition-colors <?php echo $current_page === 'home.php' ? 'bg-[#55A9FF] text-white' : 'text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF]'; ?>">
+                    <img src="../assets/home.png" alt="">Home
+                </a>
+                <a href="offers.php"
+                   class="flex items-center px-4 py-2 rounded-lg font-semibold transition-colors <?php echo $current_page === 'offers.php' ? 'bg-[#55A9FF] text-white' : 'text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF]'; ?>">
+                    <img src="../assets/offers.png" alt="">Offers
+                </a>
+                <a href="videos.php"
+                   class="flex items-center px-4 py-2 rounded-lg font-semibold transition-colors <?php echo $current_page === 'videos.php' ? 'bg-[#55A9FF] text-white' : 'text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF]'; ?>">
+                    <img src="../assets/videos.png" alt="">Videos
+                </a>
                 <?php if (!empty($_SESSION['user_id'])): ?>
-                <a href="notifications.php" id="sidebar-notif-link" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF] transition-colors relative">
+                <a href="notifications.php" id="sidebar-notif-link" class="flex items-center px-4 py-2 rounded-lg font-semibold transition-colors <?php echo $current_page === 'notifications.php' ? 'bg-[#55A9FF] text-white' : 'text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF]'; ?> relative">
                     <img src="../assets/notifications.png" alt="">Notifications
                     <?php if ($unread_count > 0): ?>
                         <span id="sidebar-notif-badge" class="absolute top-1 right-1 bg-red-500 text-white text-xs rounded-full px-2 py-0.5 font-bold animate-pulse"><?php echo $unread_count; ?></span>
                     <?php endif; ?>
                 </a>
                 <?php endif; ?>
-                <a href="profile.php" class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF] transition-colors"><img src="../assets/profile.png" alt="">Profile</a>
+                <a href="profile.php"
+                   class="flex items-center px-4 py-2 rounded-lg font-semibold transition-colors <?php echo $current_page === 'profile.php' ? 'bg-[#55A9FF] text-white' : 'text-gray-700 hover:bg-[#55A9FF11] hover:text-[#55A9FF]'; ?>">
+                    <img src="../assets/profile.png" alt="">Profile
+                </a>
             </nav>
 <script>
 document.addEventListener('DOMContentLoaded', function() {

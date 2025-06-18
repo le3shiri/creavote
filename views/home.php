@@ -28,15 +28,13 @@ if (!empty($_SESSION['user_id'])) {
     $is_img = preg_match('/\.(jpg|jpeg|png|gif|webp)$/i', $file_url);
     if (!$is_img) continue;
 ?>
-        <div class="bg-white rounded-lg shadow-lg mb-8 overflow-hidden transition-all duration-300 hover:shadow-xl group">
+        <div class="bg-white rounded-lg shadow-lg mb-8 overflow-hidden transition-all duration-300 hover:shadow-xl">
     <div class="relative w-full aspect-square bg-gray-200 flex items-center justify-center overflow-hidden">
 
         <?php
         // $file_url and $is_img are already set above
         if ($is_img): ?>
-            <a href="/creavote/views/design-details.php?design_id=<?php echo urlencode($design['design_id']); ?>">
-                <img src="<?php echo (strpos($file_url, '/uploads') === 0 ? '/creavote' . $file_url : $file_url); ?>" alt="Design" class="object-contain w-full h-full hover:opacity-90 transition-opacity duration-150" onerror="this.onerror=null;this.src='/creavote/assets/image-placeholder.png';" />
-            </a>
+            <img src="<?php echo (strpos($file_url, '/uploads') === 0 ? '/creavote' . $file_url : $file_url); ?>" alt="Design" class="object-contain w-full h-full hover:opacity-90 transition-opacity duration-150" onerror="this.onerror=null;this.src='/creavote/assets/image-placeholder.png';" />
         <?php else: ?>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-[#55A9FF] opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a4 4 0 004 4h6a4 4 0 004-4V7" /></svg>
         <?php endif; ?>
